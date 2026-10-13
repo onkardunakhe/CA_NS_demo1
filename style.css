@@ -654,3 +654,5 @@ dialog p {
         transform: none;
     }
 }
+
+   .menu { max-height: calc(100dvh - 72px); overflow-y: auto; }
