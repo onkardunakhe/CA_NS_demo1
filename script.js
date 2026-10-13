@@ -59,6 +59,9 @@ form.addEventListener("submit", async e => {
   btn.disabled = false;
 });
 
+
+   document.addEventListener("click", e => { if (!nav.contains(e.target)) setMenu(false); });
+
 /* Legal placeholder modal */
 const modal = $("modal");
 document.querySelectorAll("[data-modal]").forEach(a => a.onclick = e => { e.preventDefault(); $("mt").textContent = a.dataset.modal; modal.showModal(); });
