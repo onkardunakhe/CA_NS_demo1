@@ -655,4 +655,49 @@ dialog p {
     }
 }
 
+/* ===== Mobile fixes (paste at the very end of the CSS file) ===== */
+
+/* Stops sideways scroll on iPhone Safari */
+html, body { max-width: 100%; overflow-x: clip; }
+body { overflow-wrap: break-word; }
+img, svg { max-width: 100%; }
+select, input, textarea { max-width: 100%; }
+
+/* Menu links: bigger tap targets */
+.menu a:not(.btn) { padding: 0.6rem 0; }
+
+/* Footer links: bigger tap targets */
+.foot a { padding: 0.5rem 0; }
+
+/* Modal */
+dialog { width: calc(100% - 2rem); }
+dialog h2 { font-size: 1.8rem; margin-bottom: 0; }
+
+/* Mobile only (below 768px) */
+@media (max-width: 767px) {
+  /* Grid children can't push the page wider than the screen */
+  .two, .hero__in, .grid, .aud, .foot__cols, .steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .two > *, .hero__in > *, form, label { min-width: 0; }
+  .strip__in { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  /* Menu sits right under the nav, scrolls if too tall */
+  .menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    inset-block-end: auto;
+    max-height: calc(100dvh - 72px);
+    overflow-y: auto;
+  }
+
+  /* Hero tag stays inside the screen */
+  .hero__tag {
+    max-width: calc(100% - 2rem);
+    font-size: 1rem;
+  }
+}
+
    .menu { max-height: calc(100dvh - 72px); overflow-y: auto; }
